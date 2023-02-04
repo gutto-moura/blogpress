@@ -1,0 +1,26 @@
+{
+  "name": "blogpress",
+  "version": "1.0.0",
+  "description": "blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gutto-moura/blogpress.git"
+  },
+  "author": "Augusto Moura",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gutto-moura/blogpress/issues"
+  },
+  "homepage": "https://github.com/gutto-moura/blogpress#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "mysql2": "^3.1.0",
+    "sequelize": "^6.28.0"
+  }
+}
