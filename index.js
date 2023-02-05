@@ -2,8 +2,12 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const connection = require("./database/connection");
+
 const categoriesController = require("./categories/categoriesController");
 const articlesController = require("./articles/articlesController");
+
+const Article = require("./articles/Article");
+const Category = require("./categories/Category");
 
 connection.authenticate().then(() => {
   console.log("CONECTADO AO BANCO blogpress")
