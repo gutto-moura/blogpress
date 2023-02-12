@@ -25,9 +25,11 @@ app.use("/", categoriesController);
 app.use("/", articlesController);
 
 app.get("/", (req, res) => {
-  res.render('index');
-})
+  Article.findAll().then((articles) => {
+    res.render('index', {articles: articles});
+  })
 
+})
 
 app.listen(8800, () => {
   console.log("RODANDO NA PORTA 8800")

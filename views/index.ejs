@@ -2,7 +2,20 @@
 <html lang="en">
   <%- include('partials/header') %> 
 <body>
-  <h1>Meu blog</h1>
+  <%- include('partials/homenavbar') %>
+  
+  <div class="container">
+    <% articles.forEach( article => { %>
+      <div class="card">
+        <div class="card-header">
+          <h2><%= article.title %></h2>
+        </div>
+        <div class="card-body">
+          <a class="btn btn-success">Ler artigo</a>
+        </div>
+      </div>
+    <% }) %> 
+  </div>
 
   <%- include('partials/footer') %> 
 </body>
