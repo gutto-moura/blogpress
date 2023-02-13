@@ -4,5 +4,10 @@
     <li class="nav-item">
       <a class="nav-link" href="/">Home</a>
     </li>
+    <% categories.forEach((categories) => { %>
+      <li class="nav-item">
+        <a class="nav-link" href="/"><%= categories.title %></a>
+      </li>
+    <% }) %>
   </ul>
 </nav>
