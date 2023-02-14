@@ -41,7 +41,8 @@ app.get("/:slug", (req, res) => {
   Article.findOne({
     where:{
       slug: slug
-    }
+    },
+    include: [{model: Article}]
   }).then((article) => {
     if(article != undefined){
       Category.findAll().then((categories) => {
@@ -54,6 +55,25 @@ app.get("/:slug", (req, res) => {
     res.redirect("/");
   })
 });
+app.get("/category/:slug", (req, res) => {
+  var slug = req.params.slug;
+
+  Category.findOne({
+    where: {
+      slug: slug
+    }, include: [{model: Article}]
+  }).then(category => {
+    if(category != undefined){
+      category.findAll().then(categories => {
+        res.render("index, {articles: category.articles, categories: categories}");
+      });
+    }else{
+      res.redirect("/");
+    }
+  }).catch(err => {
+    res.redirect("/");
+  })
+})
 
 app.listen(8800, () => {
   console.log("RODANDO NA PORTA 8800")
