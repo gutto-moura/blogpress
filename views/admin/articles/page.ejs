@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('partials/header') %> 
+  <%- include('../../partials/header') %> 
 <body>
-  <%- include('partials/homenavbar') %>
+  <%- include('../../partials/homenavbar') %>
   
   <div class="container">
-    <% articles.forEach( article => { %>
+    <% result.articles.rows.forEach( article => { %>
       <br>
       <div class="card">
         <div class="card-header">
@@ -19,13 +19,6 @@
     <% }) %> 
   </div>
 
-  <div class="row">
-    <div class="col col-12">
-      <a style="float: right" href="/article/page/2">NEXT >> </a>
-    </div>
-
-  </div>
-
-  <%- include('partials/footer') %> 
+  <%- include('../../partials/footer') %> 
 </body>
 </html>
