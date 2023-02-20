@@ -5,9 +5,11 @@ const connection = require("./database/connection");
 
 const categoriesController = require("./categories/categoriesController");
 const articlesController = require("./articles/articlesController");
+const usersController = require("./user/usersController");
 
 const Article = require("./articles/Article");
 const Category = require("./categories/Category");
+const User = require("./user/Users")
 
 connection.authenticate().then(() => {
   console.log("CONECTADO AO BANCO blogpress")
@@ -23,6 +25,7 @@ app.use(bodyParser.json());
 
 app.use("/", categoriesController);
 app.use("/", articlesController);
+app.use("/", usersController);
 
 app.get("/", (req, res) => {
   Article.findAll({
