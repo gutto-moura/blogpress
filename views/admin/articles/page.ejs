@@ -17,6 +17,21 @@
         </div>
       </div>
     <% }) %> 
+
+    <div class="row">
+      <div class="col col-12">
+        <% if(result.page > 2){ %>
+        <a style="float: left" href="/article/page/<%= result.page - 1 %>"> << PREV</a>
+        <% } else if(result.page == 2) { %>
+          <a style="float: left" href="/"> << PREV</a>
+        <%  } %>
+
+        <% if(result.next){ %>
+          <a style="float: right" href="/article/page/<%= result.page + 1 %>">NEXT >> </a>
+        <%  } %>
+       
+      </div>
+    </div>
   </div>
 
   <%- include('../../partials/footer') %> 
