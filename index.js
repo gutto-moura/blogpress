@@ -59,6 +59,7 @@ app.get("/:slug", (req, res) => {
     res.redirect("/");
   })
 });
+
 app.get("/category/:slug", (req, res) => {
   var slug = req.params.slug;
 
@@ -69,7 +70,7 @@ app.get("/category/:slug", (req, res) => {
   }).then(category => {
     if(category != undefined){
       category.findAll().then(categories => {
-        res.render("index, {articles: category.articles, categories: categories}");
+        res.render('index', {articles: category.articles, categories: categories});
       });
     }else{
       res.redirect("/");
