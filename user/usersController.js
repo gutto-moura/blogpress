@@ -10,4 +10,4 @@ router.get("/admin/users/create", (req, res) => {
   res.render("admin/users/create");
 });
 
-exports.module = router;
+module.exports = router;
