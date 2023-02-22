@@ -4,10 +4,6 @@ const User = require("./Users");
 const bcrypt = require("bcryptjs");
 
 router.get("/admin/users", (req, res) => {
-  if(req.session.user == undefined){
-    res.redirect("/");
-  }
-
   User.findAll().then( users => {
     res.render("admin/users/index", {users: users});
   })
@@ -38,7 +34,6 @@ router.post("/users/create", (req, res) => {
       res.redirect("/admin/users/create")
     }
   })
-
 
   router.get("/login", (req, res) => {
     res.render("admin/users/login");
