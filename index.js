@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const session = require("express-session")
 const bodyParser = require("body-parser");
 const connection = require("./database/connection");
 
@@ -19,6 +20,11 @@ connection.authenticate().then(() => {
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+
+// Configurando session
+app.use(session({
+  secret: "aleblocham", cookie: { maxAge: 3000000 }
+}));
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
